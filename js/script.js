@@ -12,7 +12,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (playerSelection == computerSelection) {
-        return 'A Tie! Start over';
+        return 'A Tie! Try over';
     } else {
         if (playerSelection == 'rock') {
             if (computerSelection == 'scissors') {
@@ -24,11 +24,11 @@ function playRound(playerSelection, computerSelection) {
             if (computerSelection == 'rock') {
                 return 'You Won! Paper beats Rock'
             } else {
-                return 'You Lose! Scissors beats Paper'
+                return 'You Lose! Scissors beat Paper'
             }
         } else {
             if (computerSelection == 'paper') {
-                return 'You Won! Scissors beats Paper';
+                return 'You Won! Scissors beat Paper';
             } else {
                 return 'You Lose! Rock beats Scissors';
             }
@@ -77,7 +77,8 @@ function game() {
         result = 'GAME OVER! Better luck next time';
     }
 
-    alert(result);
+    alert(`${result}
+    You: ${playerScore} | Computer: ${computerScore}`);
     console.log(result);
 }
 
