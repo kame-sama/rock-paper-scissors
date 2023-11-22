@@ -2,7 +2,7 @@
 
 Console implementation of wellknown hand game
 
-## Gameflow:
+## Gameflow
  * takes user's selection;
  * generates computer's selection;
  * compare selections and alert user with current state;
