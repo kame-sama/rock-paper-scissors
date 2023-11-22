@@ -43,7 +43,8 @@ function game() {
     let result;
 
     while (round <= 5) {
-        const playerSelection = prompt('Enter a shape (rock, paper, scissors)');
+        const playerSelection = prompt(`Round: ${round}
+        Enter a shape (rock, paper, scissors)`);
         const computerSelection = getComputerChoice();
         const roundResult = playRound(playerSelection, computerSelection);
 
@@ -76,8 +77,8 @@ function game() {
         result = 'GAME OVER! Better luck next time';
     }
 
-    console.log(result);
     alert(result);
+    console.log(result);
 }
 
 game();
