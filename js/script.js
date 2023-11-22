@@ -35,3 +35,41 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 }
+
+function game() {
+    let round = 1;
+    let playerScore = 0;
+    let computerScore = 0;
+
+    while (round <= 5) {
+        const playerSelection = prompt('Enter a shape (rock, paper, scissors)');
+        const computerSelection = getComputerChoice();
+        const roundResult = playRound(playerSelection, computerSelection);
+
+        console.log(round);
+
+        if (roundResult.includes('Tie')) {
+            round = round;
+            console.log(roundResult);
+        } else {
+            if (roundResult.includes('Won')) {
+                playerScore++;
+            } else {
+                computerScore++;
+            }
+            
+            console.log(roundResult);
+            console.log(`You: ${playerScore} | Computer: ${computerScore}`);
+
+            round++;
+        }
+    }
+
+    if (playerScore > computerScore) {
+        console.log('You\'re a WINNER! You\'ve crushed the Machine');
+    } else {
+        console.log('GAME OVER! Better luck next time');
+    }
+}
+
+game();
