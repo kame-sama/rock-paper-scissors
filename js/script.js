@@ -40,6 +40,7 @@ function game() {
     let round = 1;
     let playerScore = 0;
     let computerScore = 0;
+    let result;
 
     while (round <= 5) {
         const playerSelection = prompt('Enter a shape (rock, paper, scissors)');
@@ -50,6 +51,8 @@ function game() {
 
         if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
             round = round;
+            alert(`Round: ${round}
+            ${roundResult}`);
             console.log(roundResult);
         } else {
             if (roundResult.includes('Won')) {
@@ -58,6 +61,8 @@ function game() {
                 computerScore++;
             }
             
+            alert(`Round: ${round}
+            ${roundResult}`);
             console.log(roundResult);
             console.log(`You: ${playerScore} | Computer: ${computerScore}`);
 
@@ -66,10 +71,13 @@ function game() {
     }
 
     if (playerScore > computerScore) {
-        console.log('You\'re a WINNER! You\'ve crushed the Machine');
+        result = 'You\'re a WINNER! You\'ve crushed the Machine';
     } else {
-        console.log('GAME OVER! Better luck next time');
+        result = 'GAME OVER! Better luck next time';
     }
+
+    console.log(result);
+    alert(result);
 }
 
 game();
