@@ -48,7 +48,7 @@ function game() {
 
         console.log(round);
 
-        if (roundResult.includes('Tie')) {
+        if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
             round = round;
             console.log(roundResult);
         } else {
