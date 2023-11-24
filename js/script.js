@@ -51,7 +51,6 @@ function playGame(e) {
             round = round;
             roundText.textContent = `Round: ${round}`;
             resultText.textContent = roundResult;
-            console.log(roundResult);
         } else {
             if (roundResult.includes('Won')) {
                 playerScore++;
@@ -63,8 +62,6 @@ function playGame(e) {
             resultText.textContent = roundResult;
             playerScoreText.textContent = `You: ${playerScore}`;
             computerScoreText.textContent = `Computer: ${computerScore}`;
-            console.log(roundResult);
-            console.log(`You: ${playerScore} | Computer: ${computerScore}`);
 
             if (round == 5) {
                 if (playerScore > computerScore) {
@@ -74,7 +71,6 @@ function playGame(e) {
                 }
             
                 resultText.textContent = result;
-                resultText.style.color = 'coral';
 
                 const images = document.querySelectorAll('button > img');
                 images.forEach(img => img.setAttribute('src', './images/reload.png'));
@@ -96,8 +92,7 @@ function playNewGame() {
     roundText.textContent = 'Round: 0';
     playerScoreText.textContent = 'You: ??';
     computerScoreText.textContent = 'Computer: ??';
-    resultText.textContent = '';
-    resultText.style.color = '#fefefe';
+    resultText.textContent = '???';
 
     const images = document.querySelectorAll('button > img');
 
