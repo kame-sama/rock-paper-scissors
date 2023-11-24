@@ -7,7 +7,9 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     
-    if (playerSelection != 'rock' && playerSelection != 'paper' && playerSelection != 'scissors') {
+    if (playerSelection != 'rock'
+        && playerSelection != 'paper'
+        && playerSelection != 'scissors') {
         return 'Wrong Input!';
     }
 
@@ -36,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+function playGame() {
     let round = 1;
     let playerScore = 0;
     let computerScore = 0;
@@ -82,4 +84,4 @@ function game() {
     console.log(result);
 }
 
-game();
+playGame();

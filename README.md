@@ -6,4 +6,4 @@ Console implementation of wellknown hand game
  * takes user's selection;
  * generates computer's selection;
  * compare selections and alert user with current state;
- * game length - 5 round.
+ * game length - 5 rounds.
