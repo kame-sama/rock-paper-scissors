@@ -108,6 +108,23 @@ function playNewGame() {
     buttons.forEach(btn => btn.removeEventListener('click', playNewGame));
 }
 
+function changeColor() {
+    resultText.style.color = colors[colorIndex]
+    colorIndex++;
+    if (colorIndex == colors.length) colorIndex = 0;
+}
+
+const colors = [
+    'aqua',
+    'goldenrod',
+    'darkorchid',
+    'royalblue',
+    'chartreuse',
+    'crimson'
+];
+
+let colorIndex = 0;
+
 const buttons = document.querySelectorAll('button');
 let round = 1;
 let playerScore = 0;
@@ -122,3 +139,5 @@ const resultText = document.querySelector('.result');
 buttons.forEach(button => button.addEventListener('click', e => {
     playGame(e);
 }));
+
+buttons.forEach(button => button.addEventListener('click', changeColor));
