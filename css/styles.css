@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -29,6 +31,7 @@ header, footer {
 }
 
 h1 {
+    font-family: 'Pixelify Sans', sans-serif;
     font-size: 2.8em;
 }
 
@@ -51,8 +54,6 @@ h1 {
 }
 
 .round, .result {
-    text-align: center;
-    height: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,14 +62,24 @@ h1 {
 
 .round {
     font-weight: bold;
+    height: 50px;
+}
+
+.result {
+    height: 125px;
 }
 
 .scores {
-    height: 50px;
+    height: 25px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-size: 1.5em;
+}
+
+.scores > * {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 24px;
 }
 
 .buttons {
