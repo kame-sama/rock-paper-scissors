@@ -74,12 +74,38 @@ function playGame(e) {
                 }
             
                 resultText.textContent = result;
+                resultText.style.color = 'coral';
+
+                const images = document.querySelectorAll('button > img');
+                images.forEach(img => img.setAttribute('src', './images/reload.png'));
                 console.log(result);
+                buttons.forEach(button => 
+                    button.addEventListener('click', playNewGame));
             }
 
             round++;
         }
     }
+}
+
+function playNewGame() {
+    round = 1;
+    playerScore = 0;
+    computerScore = 0;
+
+    roundText.textContent = 'Round: 0';
+    playerScoreText.textContent = 'You: ??';
+    computerScoreText.textContent = 'Computer: ??';
+    resultText.textContent = '';
+    resultText.style.color = '#fefefe';
+
+    const images = document.querySelectorAll('button > img');
+
+    images[0].setAttribute('src', './images/rock.png');
+    images[1].setAttribute('src', './images/paper.png');
+    images[2].setAttribute('src', './images/scissors.png');
+
+    buttons.forEach(btn => btn.removeEventListener('click', playNewGame));
 }
 
 const buttons = document.querySelectorAll('button');
