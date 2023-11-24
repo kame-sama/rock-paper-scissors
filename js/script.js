@@ -5,12 +5,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    
-    if (playerSelection != 'rock'
-        && playerSelection != 'paper'
-        && playerSelection != 'scissors') {
-        return 'Wrong Input!';
-    }
 
     if (playerSelection == computerSelection) {
         return 'A Tie! Try over';
@@ -47,15 +41,20 @@ function playGame(e) {
         roundText.textContent = round;
         console.log(round);
 
-        if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
-            round = round;
+        if (roundResult.includes('Tie')) {
             roundText.textContent = `Round: ${round}`;
             resultText.textContent = roundResult;
+            playerScoreText.style.color = 'azure';
+            computerScoreText.style.color = 'azure';
         } else {
             if (roundResult.includes('Won')) {
                 playerScore++;
+                playerScoreText.style.color = 'forestgreen';
+                computerScoreText.style.color = 'crimson';
             } else {
                 computerScore++;
+                playerScoreText.style.color = 'crimson';
+                computerScoreText.style.color = 'forestgreen';
             }
             
             roundText.textContent = `Round: ${round}`;
@@ -93,6 +92,9 @@ function playNewGame() {
     playerScoreText.textContent = 'You: ??';
     computerScoreText.textContent = 'Computer: ??';
     resultText.textContent = '???';
+
+    playerScoreText.style.color = 'azure';
+    computerScoreText.style.color = 'azure';
 
     const images = document.querySelectorAll('button > img');
 
