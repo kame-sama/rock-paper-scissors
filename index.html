@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
 </head>
+
 <body>
-    <div class="display">
-        <div class="round">??</div>
-        <div class="result"></div>
-        <div class="scores">
-            <div class="player-score">??</div>
-            <div class="computer-score">??</div>
+    <header>
+        <div class="container">
+            <h1>Paper Rock Scissors</h1>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <div class="display">
+                <div class="round">Round: 0</div>
+                <div class="result"></div>
+                <div class="scores">
+                    <div class="player-score">You: ??</div>
+                    <div class="computer-score">Computer: ??</div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="rock">
+                    <img src="images/rock.png" width="128">
+                </button>
+                <button id="paper">
+                    <img src="images/paper.png" width="128">
+                </button>
+                <button id="scissors">
+                    <img src="images/scissors.png" width="128">
+                </button>
+            </div>
         </div>
     </div>
-    <div class="buttons">
-        <button id="rock">
-            Rock
-        </button>
-        <button id="paper">
-            Paper
-        </button>
-        <button id="scissors">
-            Scissors
-        </button>
-    </div>
+    <footer>
+        <div class="container">
+            <a href="https://www.flaticon.com/free-icons/miscellaneous" title="miscellaneous icons">
+                Miscellaneous icons created by Alfian Dwi Hartanto - Flaticon
+            </a>
+        </div>
+    </footer>
 </body>
+
 </html>

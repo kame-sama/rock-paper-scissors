@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
 function playGame(e) {
 
     if (round <= 5) {
-        const playerSelection = e.target.id;
+        const playerSelection = e.target.id || e.target.parentElement.id;
         const computerSelection = getComputerChoice();
         const roundResult = playRound(playerSelection, computerSelection);
 
@@ -49,8 +49,8 @@ function playGame(e) {
 
         if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
             round = round;
-            roundText.textContent = `Round: ${round}
-            ${roundResult}`;
+            roundText.textContent = `Round: ${round}`;
+            resultText.textContent = roundResult;
             console.log(roundResult);
         } else {
             if (roundResult.includes('Won')) {
@@ -59,16 +59,16 @@ function playGame(e) {
                 computerScore++;
             }
             
-            roundText.textContent = `Round: ${round}
-            ${roundResult}`;
-            playerScoreText.textContent = `You ${playerScore}`;
+            roundText.textContent = `Round: ${round}`;
+            resultText.textContent = roundResult;
+            playerScoreText.textContent = `You: ${playerScore}`;
             computerScoreText.textContent = `Computer: ${computerScore}`;
             console.log(roundResult);
             console.log(`You: ${playerScore} | Computer: ${computerScore}`);
 
             if (round == 5) {
                 if (playerScore > computerScore) {
-                    result = 'You\'re a WINNER! You\'ve crushed the Machine';
+                    result = 'You\'re a total WINNER!';
                 } else {
                     result = 'GAME OVER! Better luck next time';
                 }
