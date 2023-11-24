@@ -4,93 +4,95 @@ function getComputerChoice() {
     return shapes[index];
 }
 
-function playRound(e) {
-    const playerSelection = e.target.textContent.toLowerCase();
-    const computerSelection = getComputerChoice();
-
+function playRound(playerSelection, computerSelection) {
     
     if (playerSelection != 'rock'
         && playerSelection != 'paper'
         && playerSelection != 'scissors') {
-        console.log('Wrong Input!');
         return 'Wrong Input!';
     }
 
     if (playerSelection == computerSelection) {
-        console.log('A Tie! Try over');
         return 'A Tie! Try over';
     } else {
         if (playerSelection == 'rock') {
             if (computerSelection == 'scissors') {
-                console.log('You Won! Rock beats Scissors');
                 return 'You Won! Rock beats Scissors';
             } else {
-                console.log('You Lose! Paper beats Rock');
                 return 'You Lose! Paper beats Rock';
             }
         } else if (playerSelection == 'paper') {
             if (computerSelection == 'rock') {
-                console.log('You Won! Paper beats Rock');
                 return 'You Won! Paper beats Rock';
             } else {
-                console.log('You Lose! Scissors beat Paper');
                 return 'You Lose! Scissors beat Paper';
             }
         } else {
             if (computerSelection == 'paper') {
-                console.log('You Won! Scissors beat Paper');
                 return 'You Won! Scissors beat Paper';
             } else {
-                console.log('You Lose! Rock beats Scissors');
                 return 'You Lose! Rock beats Scissors';
             }
         }
     }
 }
 
-// function playGame() {
-//     let round = 1;
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     let result;
+function playGame(e) {
 
-//     while (round <= 5) {
-//         const playerSelection = prompt(`Round: ${round}
-//         Enter a shape (rock, paper, scissors)`);
-//         const computerSelection = getComputerChoice();
-//         const roundResult = playRound(playerSelection, computerSelection);
+    if (round <= 5) {
+        const playerSelection = e.target.id;
+        const computerSelection = getComputerChoice();
+        const roundResult = playRound(playerSelection, computerSelection);
 
-//         console.log(round);
+        roundText.textContent = round;
+        console.log(round);
 
-//         if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
-//             round = round;
-//             console.log(roundResult);
-//         } else {
-//             if (roundResult.includes('Won')) {
-//                 playerScore++;
-//             } else {
-//                 computerScore++;
-//             }
+        if (roundResult.includes('Tie') || roundResult == 'Wrong Input!') {
+            round = round;
+            roundText.textContent = `Round: ${round}
+            ${roundResult}`;
+            console.log(roundResult);
+        } else {
+            if (roundResult.includes('Won')) {
+                playerScore++;
+            } else {
+                computerScore++;
+            }
             
+            roundText.textContent = `Round: ${round}
+            ${roundResult}`;
+            playerScoreText.textContent = `You ${playerScore}`;
+            computerScoreText.textContent = `Computer: ${computerScore}`;
+            console.log(roundResult);
+            console.log(`You: ${playerScore} | Computer: ${computerScore}`);
+
+            if (round == 5) {
+                if (playerScore > computerScore) {
+                    result = 'You\'re a WINNER! You\'ve crushed the Machine';
+                } else {
+                    result = 'GAME OVER! Better luck next time';
+                }
             
-//             console.log(roundResult);
-//             console.log(`You: ${playerScore} | Computer: ${computerScore}`);
+                resultText.textContent = result;
+                console.log(result);
+            }
 
-//             round++;
-//         }
-//     }
-
-//     if (playerScore > computerScore) {
-//         result = 'You\'re a WINNER! You\'ve crushed the Machine';
-//     } else {
-//         result = 'GAME OVER! Better luck next time';
-//     }
-
-//     console.log(result);
-// }
+            round++;
+        }
+    }
+}
 
 const buttons = document.querySelectorAll('button');
+let round = 1;
+let playerScore = 0;
+let computerScore = 0;
+let result;
+
+const roundText = document.querySelector('.round');
+const playerScoreText = document.querySelector('.player-score');
+const computerScoreText = document.querySelector('.computer-score');
+const resultText = document.querySelector('.result');
 
 buttons.forEach(button => button.addEventListener('click', e => {
-    playRound(e);
+    playGame(e);
 }));
